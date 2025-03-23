@@ -5,6 +5,7 @@ public interface NeuralNetwork {
 	int init();
 	int train();
 	int inference();
+	void iterate();
 	
 
 
