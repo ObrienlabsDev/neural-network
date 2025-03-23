@@ -2,9 +2,11 @@ package dev.obrienlabs.ml.neural_network.service;
 
 public interface NeuralNetwork {
 	
-	int init();
-	int train();
-	int inference();
+	long init();
+	long configureFullMesh(long neurons, long layers);
+	long train();
+	long trainFor(long iterations);
+	long inference();
 	void iterate();
 	
 
