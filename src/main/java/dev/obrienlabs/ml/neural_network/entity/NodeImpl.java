@@ -2,7 +2,7 @@ package dev.obrienlabs.ml.neural_network.entity;
 
 import java.util.List;
 
-public class NodeImpl {
+public class NodeImpl implements Node {
 	private long id;
 	private long layer;
 	private boolean state;
