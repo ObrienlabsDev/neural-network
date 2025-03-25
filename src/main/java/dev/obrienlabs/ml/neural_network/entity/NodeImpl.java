@@ -12,6 +12,21 @@ public class NodeImpl implements Node {
 	private List<Connection> incoming;
 	private Node left;
 	private Node right;
+	
+	
+	public NodeImpl() {
+		// synchronized by nature of the owning object's thread
+	
+	}
+	
+	// serialize object construction not at the method but at the statement level
+	public static Node instance(long layer, long neuron) {
+		Node node = new NodeImpl();
+		node.setId(Long.valueOf(Long.toString(layer) + Long.toString(neuron)));
+		
+		return node;
+	}
+	
 	public long getId() {
 		return id;
 	}

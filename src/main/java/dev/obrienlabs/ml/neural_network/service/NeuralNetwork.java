@@ -7,6 +7,7 @@ import dev.obrienlabs.ml.neural_network.entity.Connection;
 
 public interface NeuralNetwork {
 		
+	String display();
 	List<Node> getNodes();
 	void setNodes(List<Node> nodes);
 	Node getNode(long neuron, long layer);
@@ -21,7 +22,7 @@ public interface NeuralNetwork {
 	
 	
 	long init();
-	long configureFullMesh(long neurons, long layers);
+	long configureFullMesh(long layers, long neurons);
 	long train();
 	long trainFor(long iterations);
 	long inference();

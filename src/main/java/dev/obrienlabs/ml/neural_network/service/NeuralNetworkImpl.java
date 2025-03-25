@@ -1,6 +1,8 @@
 package dev.obrienlabs.ml.neural_network.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.LongStream;
 
 import dev.obrienlabs.ml.neural_network.entity.Connection;
@@ -9,6 +11,7 @@ import dev.obrienlabs.ml.neural_network.entity.NodeImpl;
 
 public class NeuralNetworkImpl implements NeuralNetwork {
 
+	Map<Long, Node> nodes = new ConcurrentHashMap<>();
 	
 	
 	@Override
@@ -30,7 +33,7 @@ public class NeuralNetworkImpl implements NeuralNetwork {
 			LongStream.range(0, neurons).forEach(neuron -> {
 				System.out.println(layer + ":" + neuron);
 				// TODO: use a factory method
-				Node node = new NodeImpl();
+				addNode(NodeImpl.instance(layer, neuron));
 				
 				
 			}
@@ -83,8 +86,7 @@ public class NeuralNetworkImpl implements NeuralNetwork {
 
 	@Override
 	public void addNode(Node node) {
-		// TODO Auto-generated method stub
-		
+		nodes.put(node.getId(), node);
 	}
 
 	@Override
@@ -127,6 +129,13 @@ public class NeuralNetworkImpl implements NeuralNetwork {
 	public List<Connection> getConnectionsTo(Node to) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String display() {
+		StringBuffer buffer = new StringBuffer();
+		nodes.entrySet().stream().forEach(n -> System.out.println(n));
+		return buffer.toString();
 	}
 
 }

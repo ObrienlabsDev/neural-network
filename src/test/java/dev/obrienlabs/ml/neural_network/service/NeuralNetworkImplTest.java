@@ -7,6 +7,7 @@ public class NeuralNetworkImplTest {
 		nn.init();
 		nn.configureFullMesh(3, 3);
 		nn.trainFor(10L);
+		nn.display();
 		
 	}
 	
