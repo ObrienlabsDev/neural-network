@@ -20,7 +20,7 @@ public class NodeImpl implements Node {
 	}
 	
 	// serialize object construction not at the method but at the statement level
-	public static Node instance(long layer, long neuron) {
+	public static Node instance(long neuron, long layer) {
 		Node node = new NodeImpl();
 		node.setId(Long.valueOf(Long.toString(layer) + Long.toString(neuron)));
 		

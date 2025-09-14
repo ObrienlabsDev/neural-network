@@ -7,6 +7,7 @@ public class ConnectionImpl {
 	private double bias;
 	private Node source;
 	private Node target;
+	
 	public long getId() {
 		return id;
 	}

@@ -14,6 +14,7 @@ public class NeuralNetworkImpl implements NeuralNetwork {
 	Map<Long, Node> nodes = new ConcurrentHashMap<>();
 	
 	
+	
 	@Override
 	public void iterate() {
 		
@@ -57,13 +58,6 @@ public class NeuralNetworkImpl implements NeuralNetwork {
 	@Override
 	public long inference() {
 		return 0;
-	}
-	
-	
-	public static void main(String[] vars) {
-		NeuralNetwork nn = new NeuralNetworkImpl();
-		nn.iterate();
-
 	}
 
 	@Override
@@ -138,4 +132,17 @@ public class NeuralNetworkImpl implements NeuralNetwork {
 		return buffer.toString();
 	}
 
+	
+	public static void main(String[] vars) {
+		NeuralNetwork nn = new NeuralNetworkImpl();
+		Node n1 = NodeImpl.instance(0,0);
+		Node n2 = NodeImpl.instance(1,0);
+		Node n3 = NodeImpl.instance(2,0);
+		nn.addNode(n1);
+		nn.addNode(n2);
+		nn.addNode(n3);
+		nn.display();
+		nn.iterate();
+
+	}
 }
